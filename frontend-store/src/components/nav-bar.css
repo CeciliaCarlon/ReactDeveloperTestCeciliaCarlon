@@ -1,0 +1,34 @@
+.navigationElement {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #1D1F22;
+}
+
+.center {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
+
+.navigation {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    width: auto;
+}
+
+.divSelected {
+    border-bottom: 2px solid #5ECE7B;
+}
+
+.elementSelected {
+    color: #5ECE7B;
+}
+
+.category {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
