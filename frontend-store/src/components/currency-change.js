@@ -17,7 +17,7 @@ class CurrencyChange extends React.Component {
             alt=""
           />
           <img
-            onClick={this.props.switchCurrency}
+            onClick={() => this.props.switchCurrency}
             className={
               this.props.currencyDown ? "showCurrency" : "hiddenCurrency"
             }
