@@ -38,6 +38,13 @@ class ProductPage extends React.Component {
                 brand
                 gallery
                 inStock
+                prices {
+                  currency {
+                    symbol
+                    label
+                  }
+                  amount
+                }
               }
             }
           }
@@ -53,6 +60,17 @@ class ProductPage extends React.Component {
                 <li>Name: {product.name}</li>
                 <li>Brand: {product.brand}</li>
                 <li>In Stock: {product.inStock ? "available" : "sold out"}</li>
+                <li>
+                  {product.prices.map((price, index) => {
+                    return (
+                      <ul key={index}>
+                        <li>
+                          Precio: {price.currency.symbol} {price.amount}
+                        </li>
+                      </ul>
+                    );
+                  })}
+                </li>
                 <li>
                   {product.gallery.map((url, index) => {
                     return (
