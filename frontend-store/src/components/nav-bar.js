@@ -19,13 +19,13 @@ class Navbar extends React.Component {
         <div className="category">
           <div className="category">
             <div className="navigation center divSelected">
-              <p className="navigationElement elementSelected">WOMEN</p>
+              <p className="navigationElement elementSelected">ALL</p>
             </div>
             <div className="navigation center">
-              <p className="navigationElement">MEN</p>
+              <p className="navigationElement">CLOTHES</p>
             </div>
             <div className="navigation center">
-              <p className="navigationElement">KIDS</p>
+              <p className="navigationElement">TECHNOLOGY</p>
             </div>
           </div>
           <img className="padding-top-26px" src={BrandLogo} alt="" />
