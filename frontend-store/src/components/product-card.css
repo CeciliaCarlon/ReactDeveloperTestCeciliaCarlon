@@ -1,0 +1,12 @@
+.productImg {
+    width: 354px;
+    height: auto;
+}
+
+.brandName {
+    font-weight: 300;
+}
+
+.amount {
+    font-weight: bold;
+}

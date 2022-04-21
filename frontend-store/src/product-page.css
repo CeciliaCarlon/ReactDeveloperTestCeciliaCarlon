@@ -1,0 +1,15 @@
+.divAllProducts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 60px;
+}
+
+.divProductCard {
+    margin-right: 40px;
+}
+
+.categoryName {
+    margin: 0;
+    padding: 60px 60px 0px 200px;
+}

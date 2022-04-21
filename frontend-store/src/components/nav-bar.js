@@ -1,4 +1,6 @@
 import React from "react";
+import { gql } from "apollo-boost";
+import { Query } from "react-apollo";
 import "./nav-bar.css";
 import BrandLogo from "../icons/Brand-icon.svg";
 import CartIcon from "../icons/Cart-icon.svg";
@@ -40,11 +42,36 @@ class Navbar extends React.Component {
             <div
               className={this.state.currencyDown ? "currencyTypesDiv" : "hide"}
             >
-              <ul className="currencyTypes">
-                <li className="currencyT">$ USD</li>
-                <li className="currencyT">€ EUR</li>
-                <li className="currencyT">¥ JPY</li>
-              </ul>
+              {" "}
+              <Query
+                query={gql`
+                  {
+                    currencies {
+                      symbol
+                      label
+                    }
+                  }
+                `}
+              >
+                {({ loading, error, data }) => {
+                  if (loading) return <p>Loading...</p>;
+                  if (error) return <p>Error!</p>;
+
+                  return (
+                    <>
+                      <ul className="currencyTypes">
+                        {data.currencies.map((Currency, index) => {
+                          return (
+                            <li key={index} className="currencyT">
+                              {Currency.symbol} {Currency.label}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </>
+                  );
+                }}
+              </Query>
             </div>
           </div>
         </div>
