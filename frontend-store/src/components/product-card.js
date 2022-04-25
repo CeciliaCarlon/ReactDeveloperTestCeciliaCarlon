@@ -14,8 +14,13 @@ class ProductCard extends React.Component {
       <React.Fragment>
         <div
           key={this.props.Product.id}
-          className={"productCard" + this.props.puntero}
+          className={
+            this.props.Product.inStock ? "productCard" : "productCardNoStock"
+          }
         >
+          <h3 className={this.props.Product.inStock ? "hide" : "show"}>
+            OUT OF STOCK
+          </h3>
           <img
             className="productImg"
             src={this.props.Product.gallery[0]}

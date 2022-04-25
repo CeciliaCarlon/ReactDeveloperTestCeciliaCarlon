@@ -1,6 +1,7 @@
 import React from "react";
 import { gql } from "apollo-boost";
 import { Query } from "react-apollo";
+import { Link } from "react-router-dom";
 import "./nav-bar.css";
 import BrandLogo from "../icons/Brand-icon.svg";
 import CartIcon from "../icons/Cart-icon.svg";
@@ -20,15 +21,42 @@ class Navbar extends React.Component {
       <React.Fragment>
         <div className="category">
           <div className="category">
-            <div className="navigation center divSelected">
-              <p className="navigationElement elementSelected">ALL</p>
-            </div>
-            <div className="navigation center">
-              <p className="navigationElement">CLOTHES</p>
-            </div>
-            <div className="navigation center">
-              <p className="navigationElement">TECHNOLOGY</p>
-            </div>
+            <Query
+              query={gql`
+                {
+                  categories {
+                    name
+                  }
+                }
+              `}
+            >
+              {({ loading, error, data }) => {
+                if (loading) return <p>Loading...</p>;
+                if (error) return <p>Error!</p>;
+
+                return (
+                  <>
+                    {data.categories.map((category, index) => {
+                      console.log(this.props.history);
+                      return (
+                        <Link key={index} to={"/" + category.name}>
+                          <div
+                            className={
+                              /*"navigation center" + category.name ===
+                              this.props.history.location.search.substr(1)*/ "navigation center divSelected"
+                            }
+                          >
+                            <p className="navigationElement elementSelected">
+                              {category.name.toUpperCase()}
+                            </p>
+                          </div>
+                        </Link>
+                      );
+                    })}
+                  </>
+                );
+              }}
+            </Query>
           </div>
           <img className="padding-top-26px" src={BrandLogo} alt="" />
           <div>

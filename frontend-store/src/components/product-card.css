@@ -1,6 +1,24 @@
+.productCard {
+    padding-bottom: 5px;
+    border:2px solid #fff;
+}
+
+.productCard:hover {
+    box-shadow: 10px 10px 5px #ccc;
+}
+
+.productCardNoStock {
+    padding-bottom: 5px;
+    border:2px solid #fff;
+    filter: opacity(50%);
+}
+
 .productImg {
     width: 354px;
-    height: auto;
+    height: 338px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
 }
 
 .brandName {
@@ -9,4 +27,12 @@
 
 .amount {
     font-weight: bold;
+}
+
+.show {
+    color: black;
+    position: absolute;
+    top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

@@ -5,6 +5,16 @@ import "./product-page.css";
 import ProductCard from "./components/product-card";
 
 class ProductPage extends React.Component {
+  renderCategory(product) {
+    if (
+      this.props.Category !== "all" &&
+      product.category === this.props.Category
+    ) {
+      return true;
+    }
+    if (this.props.Category === "all") return true;
+    else return false;
+  }
   render() {
     return (
       <Query
@@ -17,6 +27,7 @@ class ProductPage extends React.Component {
                 brand
                 gallery
                 inStock
+                category
                 prices {
                   currency {
                     symbol
@@ -35,18 +46,19 @@ class ProductPage extends React.Component {
 
           return (
             <React.Fragment>
-              <h1 className="categoryName">All Category</h1>
+              <h1 className="categoryName">
+                {this.props.Category.toUpperCase()} Category
+              </h1>
               <div className="divAllProducts">
-                {data.category.products.map((product, index) => {
-                  return (
-                    <div key={product.id} className="divProductCard">
-                      <ProductCard
-                        key={product.id}
-                        Product={product}
-                        puntero={index}
-                      />
-                    </div>
-                  );
+                {data.category.products.map((product) => {
+                  let fulfill = this.renderCategory(product);
+                  if (fulfill) {
+                    return (
+                      <div key={product.id} className="divProductCard">
+                        <ProductCard key={product.id} Product={product} />
+                      </div>
+                    );
+                  }
                 })}
               </div>
             </React.Fragment>
