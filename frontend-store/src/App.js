@@ -1,15 +1,23 @@
 import "./App.css";
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import NavBar from "./components/nav-bar.js";
 import ProductPage from "./products-page";
+import NavBar from "./components/nav-bar.js";
 
 class App extends React.Component {
+  // state = {
+  //   category: "",
+  // };
+  // componentDidUpdate(newCategory) {
+  //   this.setState((this.state.category = newCategory));
+  // }
+
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <BrowserRouter>
           <NavBar />
+          {console.log(this.props)}
           <Routes>
             <Route
               exact

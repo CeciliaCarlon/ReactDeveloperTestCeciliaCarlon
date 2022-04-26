@@ -15,56 +15,59 @@ class ProductPage extends React.Component {
     if (this.props.Category === "all") return true;
     else return false;
   }
+
   render() {
     return (
-      <Query
-        query={gql`
-          {
-            category {
-              products {
-                id
-                name
-                brand
-                gallery
-                inStock
-                category
-                prices {
-                  currency {
-                    symbol
-                    label
+      <React.Fragment>
+        <Query
+          query={gql`
+            {
+              category {
+                products {
+                  id
+                  name
+                  brand
+                  gallery
+                  inStock
+                  category
+                  prices {
+                    currency {
+                      symbol
+                      label
+                    }
+                    amount
                   }
-                  amount
                 }
               }
             }
-          }
-        `}
-      >
-        {({ loading, error, data }) => {
-          if (loading) return <p>Loading...</p>;
-          if (error) return <p>Error!</p>;
+          `}
+        >
+          {({ loading, error, data }) => {
+            if (loading) return <p>Loading...</p>;
+            if (error) return <p>Error!</p>;
 
-          return (
-            <React.Fragment>
-              <h1 className="categoryName">
-                {this.props.Category.toUpperCase()} Category
-              </h1>
-              <div className="divAllProducts">
-                {data.category.products.map((product) => {
-                  let fulfill = this.renderCategory(product);
-                  if (fulfill) {
-                    return (
-                      <div key={product.id} className="divProductCard">
-                        <ProductCard key={product.id} Product={product} />
-                      </div>
-                    );
-                  }
-                })}
-              </div>
-            </React.Fragment>
-          );
-        }}
-      </Query>
+            return (
+              <React.Fragment>
+                <h1 className="categoryName">
+                  {this.props.Category.toUpperCase()} Category
+                </h1>
+                <div className="divAllProducts">
+                  {data.category.products.map((product) => {
+                    let fulfill = this.renderCategory(product);
+                    if (fulfill) {
+                      return (
+                        <div key={product.id} className="divProductCard">
+                          <ProductCard key={product.id} Product={product} />
+                        </div>
+                      );
+                    }
+                  })}
+                </div>
+              </React.Fragment>
+            );
+          }}
+        </Query>
+      </React.Fragment>
     );
   }
 }

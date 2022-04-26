@@ -19,7 +19,7 @@ class Navbar extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className="category">
+        <div className="category marginSides-100">
           <div className="category">
             <Query
               query={gql`
@@ -37,7 +37,6 @@ class Navbar extends React.Component {
                 return (
                   <>
                     {data.categories.map((category, index) => {
-                      console.log(this.props.history);
                       return (
                         <Link key={index} to={"/" + category.name}>
                           <div

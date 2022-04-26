@@ -13,6 +13,10 @@ li {
   list-style: none;
 }
 
+.app {
+  position: relative;
+}
+
 .hide {
   display: none;
 }
@@ -34,4 +38,8 @@ li {
 }
 .marginRight-100 {
   margin-right: 15px;
+}
+.marginSides-100 {
+  margin-left: 100px;
+  margin-right: 100px;
 }
