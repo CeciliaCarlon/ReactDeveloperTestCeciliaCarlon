@@ -54,3 +54,7 @@
     padding-left: 20%;
     width: 95px;
 }
+
+.currencySelected {
+    background-color: #EEEEEE;
+}

@@ -5,6 +5,10 @@ import "./product-page.css";
 import ProductCard from "./components/product-card";
 
 class ProductPage extends React.Component {
+  // state = {
+  //   sym: null,
+  //   price: null,
+  // };
   renderCategory(product) {
     if (
       this.props.Category !== "all" &&
@@ -14,6 +18,18 @@ class ProductPage extends React.Component {
     }
     if (this.props.Category === "all") return true;
     else return false;
+  }
+  renderAmount(product) {
+    let sym = "";
+    let price = 0;
+    product.prices.map((p) => {
+      if (p.currency.label === this.props.Currency) {
+        sym = p.currency.symbol;
+        price = p.amount;
+      }
+    });
+    console.log("Final amount" + sym + price);
+    return sym + price;
   }
 
   render() {
@@ -53,11 +69,14 @@ class ProductPage extends React.Component {
                 </h1>
                 <div className="divAllProducts">
                   {data.category.products.map((product) => {
-                    let fulfill = this.renderCategory(product);
-                    if (fulfill) {
+                    if (this.renderCategory(product)) {
                       return (
                         <div key={product.id} className="divProductCard">
-                          <ProductCard key={product.id} Product={product} />
+                          <ProductCard
+                            key={product.id}
+                            Product={product}
+                            FinalAmount={this.renderAmount(product)}
+                          />
                         </div>
                       );
                     }

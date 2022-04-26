@@ -57,7 +57,9 @@ class Navbar extends React.Component {
               }}
             </Query>
           </div>
-          <img className="padding-top-26px" src={BrandLogo} alt="" />
+          <Link to={"/all"}>
+            <img className="padding-top-26px" src={BrandLogo} alt="" />
+          </Link>
           <div>
             <div className="category">
               <CurrencyChange
@@ -89,7 +91,17 @@ class Navbar extends React.Component {
                       <ul className="currencyTypes">
                         {data.currencies.map((Currency, index) => {
                           return (
-                            <li key={index} className="currencyT">
+                            <li
+                              key={index}
+                              className={
+                                this.props.actualCurrency === Currency.label
+                                  ? "currencySelected currencyT"
+                                  : "currencyT"
+                              }
+                              onClick={() =>
+                                this.props.hanbleCurrency(Currency.label)
+                              }
+                            >
                               {Currency.symbol} {Currency.label}
                             </li>
                           );
