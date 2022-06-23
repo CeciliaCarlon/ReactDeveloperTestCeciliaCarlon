@@ -5,10 +5,6 @@ import "./product-page.css";
 import ProductCard from "./components/product-card";
 
 class ProductPage extends React.Component {
-  // state = {
-  //   sym: null,
-  //   price: null,
-  // };
   renderCategory(product) {
     if (
       this.props.Category !== "all" &&
@@ -28,7 +24,6 @@ class ProductPage extends React.Component {
         price = p.amount;
       }
     });
-    console.log("Final amount" + sym + price);
     return sym + price;
   }
 

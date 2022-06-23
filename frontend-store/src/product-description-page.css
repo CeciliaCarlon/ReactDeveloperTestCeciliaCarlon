@@ -1,0 +1,46 @@
+.productDescription {
+    display: flex;
+    margin-top: 35px;
+}
+
+.divOneProductImage {
+    display: flex;
+    margin-right: 100px;
+}
+
+.divGalleryProduct {
+    display: flex;
+    flex-direction: column;
+}
+
+.miniProductImage {
+    width: auto;
+    height: 100px;
+    margin-right: 30px;
+}
+
+.oneProductImage {
+    width: 600px;
+}
+
+.divDisplayValue {
+    display: flex;
+    justify-content: space-between;
+}
+
+.displayValue {
+    width: 63px;
+    height: 45px;
+    border: 1px solid #1D1F22;
+    text-align: center;
+    line-height: 250%;
+}
+
+.btnAddToCart {
+    width: 292px;
+    height: 52px;
+    background-color: #5ECE7B;
+    color: white;
+    justify-content: center;
+    border: 0px;
+}

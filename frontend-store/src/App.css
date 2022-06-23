@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
 
 * {
   font-family: 'Raleway', sans-serif;
@@ -15,10 +16,26 @@ li {
 
 .app {
   position: relative;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 .hide {
   display: none;
+}
+
+/* ------- Text style -------- */
+.makeBold {
+  font-weight: bold;
+}
+.fontSize30 {
+  font-size: 30px;
+}
+.fontSize24 {
+  font-size: 24px;
+}
+.fontRoboto {
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .paddingRight-15 {
@@ -30,6 +47,9 @@ li {
 .padding-top-31px {
   padding-top: 31px;
 }
+.margin0 {
+  margin: 0;;
+}
 .marginRight-15 {
   margin-right: 15px;
 }
@@ -38,8 +58,4 @@ li {
 }
 .marginRight-100 {
   margin-right: 15px;
-}
-.marginSides-100 {
-  margin-left: 100px;
-  margin-right: 100px;
 }

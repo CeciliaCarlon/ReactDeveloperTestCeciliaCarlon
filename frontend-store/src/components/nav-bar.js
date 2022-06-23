@@ -19,7 +19,7 @@ class Navbar extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className="category marginSides-100">
+        <div className="category">
           <div className="category">
             <Query
               query={gql`
@@ -39,12 +39,7 @@ class Navbar extends React.Component {
                     {data.categories.map((category, index) => {
                       return (
                         <Link key={index} to={"/" + category.name}>
-                          <div
-                            className={
-                              /*"navigation center" + category.name ===
-                              this.props.history.location.search.substr(1)*/ "navigation center divSelected"
-                            }
-                          >
+                          <div className={"navigation center divSelected"}>
                             <p className="navigationElement elementSelected">
                               {category.name.toUpperCase()}
                             </p>

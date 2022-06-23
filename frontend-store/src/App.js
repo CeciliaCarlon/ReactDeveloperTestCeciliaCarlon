@@ -3,6 +3,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProductPage from "./products-page";
 import NavBar from "./components/nav-bar.js";
+import ProductDescriptionPage from "./product-description-page";
 
 class App extends React.Component {
   state = {
@@ -24,13 +25,16 @@ class App extends React.Component {
             hanbleCurrency={this.handleCurrency.bind(this)}
             actualCurrency={this.state.currency}
           />
-          {console.log(this.props)}
           <Routes>
             <Route
               exact
               path="/all"
               element={
-                <ProductPage Category="all" Currency={this.state.currency} />
+                <ProductPage
+                  location={this.props.location}
+                  Category="all"
+                  Currency={this.state.currency}
+                />
               }
             ></Route>
             <Route
@@ -48,6 +52,12 @@ class App extends React.Component {
               path="/tech"
               element={
                 <ProductPage Category="tech" Currency={this.state.currency} />
+              }
+            ></Route>
+            <Route
+              path="/description"
+              element={
+                <ProductDescriptionPage Currency={this.state.currency} />
               }
             ></Route>
             <Route
