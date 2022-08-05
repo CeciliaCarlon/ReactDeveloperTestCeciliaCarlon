@@ -9,24 +9,13 @@ import Loading from "./components/loading.js";
 class ProductDescriptionPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+    /*this.state = {
       Product: null,
-    };
+    };*/
   }
 
   componentDidMount() {
     console.log("entre a componentDidMount");
-    let data = this.getProducts();
-    console.log(data);
-    if (data !== null) {
-      data.category.products.map((product) => {
-        console.log("entre al for");
-        let windowLocationSearch = window.location.search.replace("?", "");
-        if (product.id === windowLocationSearch) {
-          this.setState({ Product: product });
-        }
-      });
-    }
   }
 
   getProducts() {
@@ -34,31 +23,29 @@ class ProductDescriptionPage extends React.Component {
     <Query
       query={gql`
         {
-          category {
-            products {
+          products(id: "huarache-x-stussy-le") {
+            id
+            name
+            brand
+            gallery
+            inStock
+            description
+            attributes {
               id
               name
-              brand
-              gallery
-              inStock
-              description
-              attributes {
+              type
+              items {
                 id
-                name
-                type
-                items {
-                  id
-                  displayValue
-                  value
-                }
+                displayValue
+                value
               }
-              prices {
-                currency {
-                  symbol
-                  label
-                }
-                amount
+            }
+            prices {
+              currency {
+                symbol
+                label
               }
+              amount
             }
           }
         }
@@ -71,25 +58,33 @@ class ProductDescriptionPage extends React.Component {
         return { data };
       }}
     </Query>;
-    return null;
   }
 
   render() {
-    console.log(JSON.stringify(this.props));
+    /*let data = this.getProducts();
+    console.log("LA DATA ES: " + data);
+    if (data !== null) {
+      data.category.products.map((product) => {
+        console.log("entre al for del render");
+        if (product.id === this.props.ProductID) {
+          this.setState({ Product: product });
+        }
+      });
+    }
     if (this.state.Product === null) {
       return (
         <div className="center">
           <Loading />
         </div>
       );
-    } else {
-      return (
-        <div className="productDescription">
-          <ProductGallery Product={this.state.Product} />
-          <ProductAttributes Product={this.state.Product} />
-        </div>
-      );
-    }
+    } else {*/
+    return (
+      <div className="productDescription">
+        <ProductGallery Product={this.props.Product} />
+        <ProductAttributes Product={this.props.Product} />
+      </div>
+    );
+    //}
   }
 }
 

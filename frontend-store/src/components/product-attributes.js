@@ -5,18 +5,23 @@ class ProductAttributes extends React.Component {
     console.log(e);
   }
   render() {
-    let semiDescription = this.state.Product.description.replace("<p>", "");
+    let semiDescription = this.props.Product.product.description.replace(
+      "<p>",
+      ""
+    );
     let finalDescription = semiDescription.replace("</p>", "");
     return (
       <div>
-        <p className="makeBold fontSize30">{this.props.Product.brand}</p>
-        <p className="fontSize30">{this.props.Product.name}</p>
+        <p className="makeBold fontSize30">
+          {this.props.Product.product.brand}
+        </p>
+        <p className="fontSize30">{this.props.Product.product.name}</p>
         <div>
           <p className="makeBold fontRoboto">
-            {this.props.Product.attributes[0].name}:
+            {this.props.Product.product.attributes[0].name}:
           </p>
           <div className="divDisplayValue">
-            {this.props.Product.attributes[0].items.map((item) => {
+            {this.props.Product.product.attributes[0].items.map((item) => {
               return (
                 <div
                   key={item.id}

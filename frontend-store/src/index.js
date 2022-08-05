@@ -4,6 +4,7 @@ import { ApolloClient } from "apollo-client";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { createHttpLink } from "apollo-link-http";
 import { ApolloProvider } from "react-apollo";
+import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
@@ -16,11 +17,12 @@ const Client = new ApolloClient({
   }),
 });
 
-ReactDOM.render(
+const container = document.getElementById("root");
+const root = createRoot(container);
+root.render(
   <ApolloProvider client={Client}>
     <App />
-  </ApolloProvider>,
-  document.getElementById("root")
+  </ApolloProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

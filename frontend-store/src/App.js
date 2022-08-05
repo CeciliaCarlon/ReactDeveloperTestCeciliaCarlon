@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProductPage from "./products-page";
 import NavBar from "./components/nav-bar.js";
-import ProductDescriptionPage from "./product-description-page";
+import ReciveProductId from "./reciveProductId";
 
 class App extends React.Component {
   state = {
@@ -55,10 +55,8 @@ class App extends React.Component {
               }
             ></Route>
             <Route
-              path="/description"
-              element={
-                <ProductDescriptionPage Currency={this.state.currency} />
-              }
+              path="/description/:productId"
+              element={<ReciveProductId Currency={this.state.currency} />}
             ></Route>
             <Route
               path="/"

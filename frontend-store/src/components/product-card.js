@@ -9,7 +9,7 @@ class ProductCard extends React.Component {
         <Link
           to={
             this.props.Product.inStock
-              ? "/description?" + this.props.Product.id
+              ? "/description/" + this.props.Product.id
               : ""
           }
         >

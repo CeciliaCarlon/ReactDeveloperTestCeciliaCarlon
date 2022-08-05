@@ -2,11 +2,10 @@ import React from "react";
 
 class ProductGallery extends React.Component {
   render() {
-    console.log(this.props.Product);
     return (
       <div className="divOneProductImage">
         <div className="divGalleryProduct">
-          {this.props.Product.gallery.map((image, index) => {
+          {this.props.Product.product.gallery.map((image, index) => {
             return (
               <img
                 key={index}
@@ -17,7 +16,10 @@ class ProductGallery extends React.Component {
             );
           })}
         </div>
-        <img className="oneProductImage" src={this.props.Product.gallery[0]} />
+        <img
+          className="oneProductImage"
+          src={this.props.Product.product.gallery[0]}
+        />
       </div>
     );
   }
